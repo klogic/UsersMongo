@@ -9,6 +9,6 @@
     "nodemon": "^1.17.5"
   },
   "scripts": {
-    "test": "nodemon test/test_helper.js"
+    "test": "mocha"
   }
 }
