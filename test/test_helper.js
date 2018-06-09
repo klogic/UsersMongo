@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
 // before is mocha hook. doing this fist and only 1 time
 before((done)=>{
   mongoose.connect('mongodb://localhost/users_test');
