@@ -11,7 +11,7 @@ const User = require('../src/user');
 describe('Reading users out of database',()=>{
   // create user every time this test runing.
   beforeEach((done)=>{
-    joe = new User({ name: 'Joe' });
+    joe = new User({ name: 'Joe' }); //normally assumion _id by it self before save
     joe.save()
     .then(()=> done());
   });
@@ -19,7 +19,12 @@ describe('Reading users out of database',()=>{
   it('find all user with name joe', (done)=>{
     User.find({ name: 'Joe'})
       .then((users)=>{
-        console.log(users);
+        /* 
+        checking joe & users        
+        console.log(users[0]._id)
+        console.log(joe._id)
+        */
+        assert(users[0]._id.toString() === joe._id.toString())
         done();
       })
   });
